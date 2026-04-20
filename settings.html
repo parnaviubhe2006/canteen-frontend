@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Settings - YUMMIESS</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="min-h-screen bg-gray-100 relative overflow-hidden">
+
+  <!-- BLOBS (optional background design) -->
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+
+  <!-- NAVBAR (same style as dashboard) -->
+<div class="flex justify-between items-center p-5 bg-white shadow-md z-10 relative border-b-4 border-orange-400 animate-fadeIn">
+
+  <!-- LEFT: BRAND -->
+  <div>
+    <h1 class="text-3xl font-bold gradient-text" style="font-family: 'Luckiest Guy', cursive;">
+      YUMMIESS...!
+    </h1>
+    <p class="text-xs gradient-text">
+      Order food faster & smarter
+    </p>
+  </div>
+
+  <!-- RIGHT: BACK + HAMBURGER -->
+<div class="flex items-center gap-4">
+
+  <!-- BACK BUTTON -->
+  <button onclick="goBack()" class="text-red-500 font-semibold hover:underline">
+    ← Back to Menu
+  </button>
+
+  <!-- CART -->
+  <div onclick="goToCart()" class="relative cursor-pointer hover:scale-110 transition">
+    <span class="text-2xl">🛒</span>
+
+    <span id="cartCount"
+      class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 rounded-full">
+      0
+    </span>
+  </div>
+
+  <!-- HAMBURGER -->
+  <div onclick="toggleSidebar()" class="cursor-pointer text-3xl font-bold">
+    ☰
+  </div>
+
+</div>
+
+
+</div>
+
+<!-- SETTINGS SUB MENU -->
+<div class="px-6 py-3 border-b bg-gradient-to-r from-red-200 via-orange-200 to-yellow-100 relative z-10">
+
+  <div class="flex gap-6 font-semibold text-gray-700">
+
+    <span onclick="showSection('profile')" 
+      class="cursor-pointer hover:text-orange-500">
+      Edit Profile
+    </span>
+
+    <span onclick="showSection('theme')" 
+      class="cursor-pointer hover:text-orange-500">
+      Themes
+    </span>
+
+    <span onclick="logout()" 
+      class="cursor-pointer text-red-500 hover:underline">
+      Logout
+    </span>
+
+  </div>
+
+</div>
+
+<!-- 🔥 SETTINGS TITLE (NOW BELOW) -->
+<div class="text-center mt-4 relative z-10">
+  <h2 class="text-2xl mb-4 font-bold text-yellow-400 underline underline-offset-8">
+    SETTINGS
+  </h2>
+</div>
+
+<!-- SIDEBAR -->
+<div id="sidebar"
+  class="fixed top-0 right-0 h-full w-0 bg-white shadow-2xl overflow-hidden transition-all duration-300 z-50">
+
+  <div class="p-6">
+
+    <h2 class="text-xl font-bold mb-6 gradient-text">YUMMIESS...!</h2>
+
+    <ul class="space-y-4 text-gray-700 font-semibold">
+
+<li onclick="goProfile()" class="sidebar-item cursor-pointer hover:text-orange-500"><span>Profile</span></li>
+
+<li onclick= "goToSettings()" class="sidebar-item cursor-pointer hover:text-orange-500"><span>Settings</span></li>
+
+<li onclick="goDashboard()" class="sidebar-item cursor-pointer hover:text-orange-500">
+  <span>Menu</span>
+</li>
+
+<li onclick="goOrders()" class="sidebar-item cursor-pointer hover:text-orange-500">
+  <span>My Orders</span>
+</li>
+
+<li class="sidebar-item cursor-pointer hover:text-orange-500"><span>Today's Specials</span></li>
+
+<li onclick= "goFavorites()" class="sidebar-item cursor-pointer hover:text-orange-500"><span>Favorites</span></li>
+
+<li onclick="logout()" class="sidebar-item logout text-red-500 font-semibold">
+  <span>Logout</span>
+</li>
+
+    </ul>
+
+  </div>
+</div>
+
+<div id="overlay"
+  onclick="toggleSidebar()"
+  class="fixed inset-0 bg-black opacity-40 hidden z-40">
+</div>
+
+<!-- CONTENT AREA -->
+<div class="flex justify-center mt-10 relative z-10">
+
+  <!-- EDIT PROFILE -->
+  <div id="profileSection" class="bg-white p-8 rounded-2xl shadow-md w-96">
+
+    <h2 class="text-xl font-bold mb-6 text-center text-orange-400">
+      Edit Profile 👤
+    </h2>
+
+    <input id="name" type="text" placeholder="Name"
+      class="w-full mb-3 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400">
+
+    <input id="email" type="email" placeholder="Email"
+      class="w-full mb-3 px-3 py-2  border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400">
+      
+    <input id="password" type="password" placeholder="New Password (optional)"
+      class="w-full mb-3 px-3 py-2  border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400">
+
+    <button onclick="updateProfile()"
+        class="w-full py-2 rounded-lg text-white font-semibold 
+         bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 
+         shadow-md hover:shadow-xl 
+         transform hover:-translate-y-1 hover:scale-105 
+         hover:from-orange-400 hover:to-yellow-400 
+         transition duration-300 ease-in-out">
+      Save Changes
+    </button>
+
+  </div>
+
+  <!-- THEME SECTION -->
+  <div id="themeSection" class="hidden bg-white p-8 rounded-2xl shadow-md w-96">
+
+    <h2 class="text-xl font-bold mb-6 text-center text-orange-400">
+      Themes 🎨
+    </h2>
+
+<button id="themeBtn" onclick="toggleDarkMode()"
+  class="w-full py-2 rounded-lg text-white font-semibold 
+  bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400">
+  Change to Dark Mode 🌙
+</button>
+
+  </div>
+
+</div>
+<script src="settings.js"></script>
+<script src="darktheme.js"></script>
+<script>
+  updateThemeButton();
+</script>
+</body>
+</html>

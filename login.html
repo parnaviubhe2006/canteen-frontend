@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - YUMMIESS</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="flex items-center justify-center h-screen overflow-hidden">
+
+  <!-- BLOBS (same as index) -->
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+
+  <!-- LOGIN CARD -->
+  <div class="bg-white rounded-2xl shadow-xl p-8 w-[350px] z-10 relative    ">
+
+<h1 class="text-3xl text-center mb-2 gradient-text" style="font-family: 'Luckiest Guy', cursive;">
+  YUMMIESS...!
+</h1>
+
+<p class="text-center mb-3" style="font-family: 'Luckiest Guy', cursive;">
+  <span style="color: initial;">🍽</span>
+  <span class="gradient-text">Order food faster & smarter</span>
+  <span style="color: initial;">🍽</span>
+</p>
+
+<h2 class="text-2xl text-center mb-6 gradient-text" style="font-family: 'Luckiest Guy', cursive;">
+  Login
+</h2>
+
+<form id="loginForm">
+<div class="relative mb-4">
+  <span class="absolute left-3 top-3 text-gray-400">📧</span>
+    <!-- Email -->
+        <input 
+        type="email" 
+        name="email"
+        placeholder="Email"
+        autocomplete="email"
+        class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
+        required
+        >
+</div>
+
+<div class="relative mb-4">
+  <span class="absolute left-3 top-3 text-gray-400">🔐</span>
+<input 
+  type="password"
+  name="password"
+  placeholder="Password"
+  autocomplete="current-password"
+  class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
+  required
+>
+</div>
+
+    <!-- Button -->
+<button type="submit"
+  class="w-full py-2 rounded-lg text-white font-semibold 
+         bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 
+         shadow-md hover:shadow-xl 
+         transform hover:-translate-y-1 hover:scale-105 
+         hover:from-orange-400 hover:to-yellow-400 
+         transition duration-300 ease-in-out">
+  Login
+</button>
+
+</form>
+
+    <!-- Register link -->
+    <p class="text-sm text-center mt-4">
+      Don't have an account? 
+      <a href="register.html" class="text-orange-500 font-semibold hover:underline">
+        Register
+      </a>
+    </p>
+
+  </div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

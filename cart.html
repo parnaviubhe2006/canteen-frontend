@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cart - YUMMIESS</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="min-h-screen relative overflow-x-hidden bg-gray-100">
+
+  <!-- BLOBS (same as dashboard) -->
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+
+  <!-- NAVBAR (same style as dashboard) -->
+<div class="flex justify-between items-center p-5 bg-white shadow-md z-10 relative border-b-4 border-orange-400 animate-fadeIn">
+
+  <!-- LEFT: BRAND -->
+  <div>
+    <h1 class="text-3xl font-bold gradient-text" style="font-family: 'Luckiest Guy', cursive;">
+      YUMMIESS...!
+    </h1>
+    <p class="text-xs gradient-text">
+      Order food faster & smarter
+    </p>
+  </div>
+
+  <!-- RIGHT: BACK + HAMBURGER -->
+  <div class="flex items-center gap-6 ml-auto">
+
+    <!-- BACK BUTTON -->
+    <button onclick="goBack()" class="text-red-500 font-semibold hover:underline">
+      ← Back to Menu
+    </button>
+
+    <!-- HAMBURGER -->
+  <div onclick="toggleSidebar()" class="cursor-pointer text-3xl font-bold">
+    ☰
+  </div>
+
+  </div>
+
+</div>
+
+
+<!-- SIDEBAR -->
+<div id="sidebar"
+  class="fixed top-0 right-0 h-full w-0 bg-white shadow-2xl overflow-hidden transition-all duration-300 z-50">
+
+  <div class="p-6">
+
+    <h2 class="text-xl font-bold mb-6 gradient-text">YUMMIESS...!</h2>
+
+    <ul class="space-y-4 text-gray-700 font-semibold">
+
+<li onclick="goProfile()" class="sidebar-item cursor-pointer hover:text-orange-500"><span>Profile</span></li>
+
+<li class="sidebar-item cursor-pointer hover:text-orange-500"><span>Settings</span></li>
+
+<li onclick="goDashboard()" class="sidebar-item cursor-pointer hover:text-orange-500">
+  <span>Menu</span>
+</li>
+
+<li onclick="goOrders()" class="sidebar-item cursor-pointer hover:text-orange-500">
+  <span>My Orders</span>
+</li>
+
+<li onclick="goToCart()" class="sidebar-item cursor-pointer hover:text-orange-500">
+  <span>Cart</span>
+</li>
+
+<li class="sidebar-item cursor-pointer hover:text-orange-500"><span>Today's Specials</span></li>
+
+<li onclick= "goFavorites()" class="sidebar-item cursor-pointer hover:text-orange-500"><span>Favorites</span></li>
+
+<li onclick="logout()" class="sidebar-item logout text-red-500 font-semibold">
+  <span>Logout</span>
+</li>
+
+    </ul>
+
+  </div>
+</div>
+
+<div id="overlay"
+  onclick="toggleSidebar()"
+  class="fixed inset-0 bg-black opacity-40 hidden z-40">
+</div>
+
+
+  <!-- PAGE TITLE -->
+   <div class="p-6 relative z-10">
+<h2 class="text-2xl mb-4 font-bold text-yellow-400 underline underline-offset-8 text-center">
+  Your Cart <span class="not-gradient">🛒</span>
+</h2>
+</div>
+
+    
+<!-- CART + SUMMARY WRAPPER -->
+<div class="p-6 relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+
+  <!-- ITEMS -->
+  <div id="cartContainer" class="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+
+  <!-- ORDER SUMMARY -->
+<div class="bg-white rounded-2xl shadow-md p-5 h-fit">
+
+  <h2 class="text-2xl mb-6 font-bold gradient-text underline underline-offset-6 text-center">
+    Order Summary <span class="not-gradient">🧾</span>
+  </h2>
+
+  <!-- ITEM LIST (NEW) -->
+  <div id="summaryItems" class="mb-4 text-sm space-y-1">
+    <!-- items will come here -->
+  </div>
+
+  <hr class="my-3">
+
+  <!-- TOTAL ITEMS -->
+  <div class="flex justify-between mb-2">
+    <span class="font-medium">Total Items</span>
+    <span id="totalItems">0</span>
+  </div>
+
+  <!-- TOTAL PRICE -->
+  <div class="flex justify-between mb-4">
+    <span class="font-medium">Total Price</span>
+    <span>₹<span id="totalPrice">0</span></span>
+  </div>
+
+  <!-- PLACE ORDER-->
+<button onclick="placeOrder()"
+  class="w-full py-2 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition">
+  Place Your Order 🛒
+</button>
+
+</div>
+
+</div>
+
+  <script src="cart.js"></script>
+  <script src="darktheme.js"></script>
+</body>
+</html>
